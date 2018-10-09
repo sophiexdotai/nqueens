@@ -13,10 +13,9 @@ case class Queen(x: Int, y: Int) extends Piece {
 }
 
 // A chessboard with some number of Queens pieces placed
-class Solution(_queens: List[Queen]) {
+class Solution(_queens: List[Queen]) { //look up case class and companion objects
     val queens = _queens
-    val n = queens.length
-    override def toString: String = {
+    val n = queens.length    
         (0 to n - 1).map { i =>
             ((0 to n - 1).map { j =>
                 if (queens contains Queen(i, j)) {
@@ -30,7 +29,7 @@ class Solution(_queens: List[Queen]) {
 }
 
 object NQueens {
-    // Chessboard's latest added Queen is not attacking any other Queens
+    // Chessboard has a pair of Queens attacking each other
     def promising(solution: Solution): Boolean = {
         solution.queens match {
             case head +: tail => tail.forall(_ nonattacking head)
@@ -38,9 +37,9 @@ object NQueens {
     }
 
     // Recursive backtracing to find a full Solution with n Queen pieces
-    def backtracking(n: Int, solution: Solution): Solution = {
+    def backtracking(n: Int, solution: Solution): Solution = { 
         val hd::tail = solution.queens
-        if (hd.x == n)
+        if (hd.x == n) // try using a case statement that all returns the same type here
             backtracking(n, new Solution(Queen(tail.head.x + 1, tail.head.y) +: tail.tail))
         else if (promising(solution)) {
             if (solution.queens.length == n)
