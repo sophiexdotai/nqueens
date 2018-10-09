@@ -4,7 +4,8 @@ import Math._
 
 case class Queen(x: Int, y: Int)
 
-class Solution(n: Int, queens: List[Queen]) {
+class Solution(queens: List[Queen]) {
+    val n = queens.length
     override def toString: String = {
         (0 to n - 1).map { i =>
             ((0 to n - 1).map { j =>
@@ -20,7 +21,7 @@ class Solution(n: Int, queens: List[Queen]) {
 
 
 object NQueens extends App {
-    val testSolution = new Solution(4, List(Queen(1, 1), Queen(2, 2), Queen(3, 3), Queen(0, 1)))
+    val testSolution = new Solution(List(Queen(1, 1), Queen(2, 2), Queen(3, 3), Queen(0, 1)))
     println(testSolution);
 }
 NQueens.main(args)
