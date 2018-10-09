@@ -30,7 +30,7 @@ class Solution(_queens: List[Queen]) {
 }
 
 object NQueens {
-    // Chessboard has a pair of Queens attacking each other
+    // Chessboard's latest added Queen is not attacking any other Queens
     def promising(solution: Solution): Boolean = {
         solution.queens match {
             case head +: tail => tail.forall(_ nonattacking head)
