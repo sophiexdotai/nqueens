@@ -19,9 +19,5 @@ class Solution(queens: List[Queen]) {
     }
 }
 
-
-object NQueens extends App {
-    val testSolution = new Solution(List(Queen(1, 1), Queen(2, 2), Queen(3, 3), Queen(0, 1)))
-    println(testSolution);
-}
-NQueens.main(args)
+val testSolution = new Solution(List(Queen(1, 1), Queen(2, 2), Queen(3, 3), Queen(0, 1)))
+println(testSolution);
